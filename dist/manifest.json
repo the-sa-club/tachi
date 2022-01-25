@@ -1,0 +1,41 @@
+{
+  "name": "Tachi",
+  "description": "Axie Wallet",
+  "version": "0.0.1",
+  "manifest_version": 2,
+  "browser_action": {
+    "default_popup": "popup.html"
+  },
+  "background": {
+    "scripts": ["backgroundscript.js"]
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "http://127.0.0.1:5500/server/index.html",
+        "http://127.0.0.1:8000/*",
+        "https://axie-uat.herokuapp.com/*",
+        "https://axie.theclubguild.com/*"
+      ],
+      "js": ["contentscript.js"]
+    }
+  ],
+  "icons": { "16": "logo.png", "48": "logo.png", "128": "logo.png" },
+  "permissions": [
+    "http://127.0.0.1:5500/server/index.html",
+    "http://127.0.0.1:8000/*",
+    "https://axie-uat.herokuapp.com/*",
+    "https://axie.theclubguild.com/*",
+    "tabs",
+    "storage"
+  ],
+  "web_accessible_resources": ["inpage.js"],
+  "externally_connectable": {
+    "matches": [
+      "http://127.0.0.1:5500/server/index.html",
+      "http://127.0.0.1:8000/*",
+      "https://axie-uat.herokuapp.com/*",
+      "https://axie.theclubguild.com/*"
+    ]
+  }
+}
